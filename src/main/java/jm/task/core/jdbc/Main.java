@@ -6,19 +6,19 @@ import jm.task.core.jdbc.util.Util;
 public class Main {
     public static void main(String[] args) {
         Util.getConnection();
-        UserDaoHibernateImpl userDaoHibernate = new UserDaoHibernateImpl();
+        UserService userService = new UserServiceImpl();
 
-        userDaoHibernate.createUsersTable();
+        userService.createUsersTable();
 
-        userDaoHibernate.saveUser("Name1", "LastName1", (byte) 20);
-        userDaoHibernate.saveUser("Name2", "LastName2", (byte) 25);
-        userDaoHibernate.saveUser("Name3", "LastName3", (byte) 31);
-        userDaoHibernate.saveUser("Name4", "LastName4", (byte) 38);
+        userService.saveUser("Name1", "LastName1", (byte) 20);
+        userService.saveUser("Name2", "LastName2", (byte) 25);
+        userService.saveUser("Name3", "LastName3", (byte) 31);
+        userService.saveUser("Name4", "LastName4", (byte) 38);
 
-        userDaoHibernate.removeUserById(1);
-        userDaoHibernate.getAllUsers();
-        userDaoHibernate.cleanUsersTable();
-        userDaoHibernate.dropUsersTable();
+        userService.removeUserById(1);
+        userService.getAllUsers();
+        userService.cleanUsersTable();
+        userService.dropUsersTable();
 
         Util.closeFactory();
     }
